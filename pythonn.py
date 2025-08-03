@@ -333,7 +333,7 @@
 # }
 
 # df = pd.DataFrame(movie_data)
-import pandas as pd
+# import pandas as pd
 
 # data = {'Name': ['Alice', 'Bob', 'Charlie'], 'Age': [25, 30, 35]}
 # df = pd.DataFrame(data)
@@ -381,14 +381,35 @@ import pandas as pd
 
 
 
-import pandas as pd
+# import pandas as pd
 
-df = pd.read_csv('Titanic.csv')
-print(df)
-ll = len(df.columns)
+# df = pd.read_csv('Titanic.csv')
+# print(df)
+# ll = len(df.columns)
 
 
-print()
-for i in range(0,ll):
-    print( df.columns[i],    (df.iloc[:,i]).unique()       )
-    print()
+# print()
+# for i in range(0,ll):
+#     print( df.columns[i],    (df.iloc[:,i]).unique()       )
+#     print()
+
+
+import numpy as np
+
+vector_a = np.array([2,3])
+vector_b = np.array([4,5])
+
+scal_proiz = vector_a @ vector_b
+
+print(scal_proiz)
+
+
+matrix_1 = np.array([[2,4],
+                     [3,9]])
+
+matrix_2 = np.array([[4,2],
+                     [1,2]])
+
+matrix_result = matrix_1 @ matrix_2
+
+print(matrix_result)
