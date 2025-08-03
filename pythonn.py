@@ -394,22 +394,35 @@
 #     print()
 
 
+# import numpy as np
+
+# vector_a = np.array([2,3])
+# vector_b = np.array([4,5])
+
+# scal_proiz = vector_a @ vector_b
+
+# print(scal_proiz)
+
+
+# matrix_1 = np.array([[2,4],
+#                      [3,9]])
+
+# matrix_2 = np.array([[4,2],
+#                      [1,2]])
+
+# matrix_result = matrix_1 @ matrix_2
+
+# print(matrix_result)
+
 import numpy as np
+from scipy import stats
 
-vector_a = np.array([2,3])
-vector_b = np.array([4,5])
+ds_ages = np.array([170, 180, 190])
 
-scal_proiz = vector_a @ vector_b
+print(np.mean(ds_ages))
+print(np.median(ds_ages))
+print(stats.mode(ds_ages))
+print(np.std(ds_ages))
+print(np.var(ds_ages))
 
-print(scal_proiz)
 
-
-matrix_1 = np.array([[2,4],
-                     [3,9]])
-
-matrix_2 = np.array([[4,2],
-                     [1,2]])
-
-matrix_result = matrix_1 @ matrix_2
-
-print(matrix_result)
