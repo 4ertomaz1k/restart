@@ -414,15 +414,38 @@
 
 # print(matrix_result)
 
+# import numpy as np
+# from scipy import stats
+
+# ds_ages = np.array([170, 180, 190])
+
+# print(np.mean(ds_ages))
+# print(np.median(ds_ages))
+# print(stats.mode(ds_ages))
+# print(np.std(ds_ages))
+# print(np.var(ds_ages))
+
+
+# import numpy as np
+# import matplotlib.pyplot as plt
+
+# ds_ages = np.array([175, 182, 168, 190, 177, 185, 179, 170, 183, 195, 172, 176, 188, 171, 180, 174, 165, 192, 178, 181])
+
+
+# plt.hist(ds_ages, 10)
+
+# plt.show()
+
+
+
 import numpy as np
-from scipy import stats
+from numpy import random
+k = 1_000
+game = np.random.randint(0,2, size = (k))
 
-ds_ages = np.array([170, 180, 190])
+heads = np.sum(game == 1)
+tails = np.sum(game == 0)
 
-print(np.mean(ds_ages))
-print(np.median(ds_ages))
-print(stats.mode(ds_ages))
-print(np.std(ds_ages))
-print(np.var(ds_ages))
 
+print(f'\nКоличество выпавших орлов:{heads}, {(heads/k*100):.3f}%\n\nКоличество выпавших решек:{tails}, {(tails/k*100):.3f}%')
 
