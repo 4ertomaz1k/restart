@@ -438,14 +438,47 @@
 
 
 
+# import numpy as np
+# from numpy import random
+# k = 1_000
+# game = np.random.randint(0,2, size = (k))
+
+# heads = np.sum(game == 1)
+# tails = np.sum(game == 0)
+
+
+# print(f'\nКоличество выпавших орлов:{heads}, {(heads/k*100):.3f}%\n\nКоличество выпавших решек:{tails}, {(tails/k*100):.3f}%')
+
+
+# numpy, scipy, sympy, pandas, matplotlib, turtle
+
+import sympy
 import numpy as np
-from numpy import random
-k = 1_000
-game = np.random.randint(0,2, size = (k))
+from matplotlib import pyplot as plt
 
-heads = np.sum(game == 1)
-tails = np.sum(game == 0)
+x = sympy.symbols('x')
 
+f = 3*x**2 + 2*x + 5
 
-print(f'\nКоличество выпавших орлов:{heads}, {(heads/k*100):.3f}%\n\nКоличество выпавших решек:{tails}, {(tails/k*100):.3f}%')
+diff = sympy.diff(f, x)
+# diff = 6*x+2
+
+m = np.linspace(-10,10, 100)
+
+m_linear = np.array([])
+m_diff = np.array([])
+
+for i in m:
+    m_linear = np.append(m_linear, f.subs(x,i))
+
+for i in m:
+    m_diff = np.append(m_diff, diff.subs(x, i))
+
+plt.subplot(1,2,1)
+plt.plot(m, m_linear)
+
+plt.subplot(1,2,2)
+plt.plot(m, m_diff)
+
+plt.show()
 
