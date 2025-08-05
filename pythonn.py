@@ -463,22 +463,31 @@ f = 3*x**2 + 2*x + 5
 diff = sympy.diff(f, x)
 # diff = 6*x+2
 
-m = np.linspace(-10,10, 100)
+m_linear = sympy.lambdify(x, f, 'numpy')
+m_diff = sympy.lambdify(x, diff, 'numpy')
 
-m_linear = np.array([])
-m_diff = np.array([])
+x_values = np.linspace(-10,10, 100)
 
-for i in m:
-    m_linear = np.append(m_linear, f.subs(x,i))
+y_values_linear = m_linear(x_values) 
+y_values_diff = m_diff(x_values)
 
-for i in m:
-    m_diff = np.append(m_diff, diff.subs(x, i))
+plt.figure(figsize=(10, 4))
 
 plt.subplot(1,2,1)
-plt.plot(m, m_linear)
+plt.plot(x_values, y_values_linear)
+plt.title('Функция $f(x)=3x^2+2x+5$')
+plt.xlabel('x')
+plt.ylabel('f(x)')
+plt.grid(True)
 
 plt.subplot(1,2,2)
-plt.plot(m, m_diff)
+plt.plot(x_values, y_values_diff, 'r')
+plt.title('Производная $f\'(x)=6x+2$')
+plt.xlabel('x')
+plt.ylabel('f\'(x)')
+plt.grid(True)
 
+
+plt.tight_layout()
 plt.show()
 
