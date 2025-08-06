@@ -452,42 +452,240 @@
 
 # numpy, scipy, sympy, pandas, matplotlib, turtle
 
-import sympy
-import numpy as np
-from matplotlib import pyplot as plt
+# import sympy
+# import numpy as np
+# from matplotlib import pyplot as plt
 
-x = sympy.symbols('x')
+# x = sympy.symbols('x')
 
-f = 3*x**2 + 2*x + 5
+# f = 3*x**2 + 2*x + 5
 
-diff = sympy.diff(f, x)
-# diff = 6*x+2
+# diff = sympy.diff(f, x)
+# # diff = 6*x+2
 
-m_linear = sympy.lambdify(x, f, 'numpy')
-m_diff = sympy.lambdify(x, diff, 'numpy')
+# m_linear = sympy.lambdify(x, f, 'numpy')
+# m_diff = sympy.lambdify(x, diff, 'numpy')
 
-x_values = np.linspace(-10,10, 100)
+# x_values = np.linspace(-10,10, 100)
 
-y_values_linear = m_linear(x_values) 
-y_values_diff = m_diff(x_values)
+# y_values_linear = m_linear(x_values) 
+# y_values_diff = m_diff(x_values)
 
-plt.figure(figsize=(10, 4))
+# plt.figure(figsize=(10, 4))
 
-plt.subplot(1,2,1)
-plt.plot(x_values, y_values_linear)
-plt.title('Функция $f(x)=3x^2+2x+5$')
-plt.xlabel('x')
-plt.ylabel('f(x)')
-plt.grid(True)
+# plt.subplot(1,2,1)
+# plt.plot(x_values, y_values_linear)
+# plt.title('Функция $f(x)=3x^2+2x+5$')
+# plt.xlabel('x')
+# plt.ylabel('f(x)')
+# plt.grid(True)
 
-plt.subplot(1,2,2)
-plt.plot(x_values, y_values_diff, 'r')
-plt.title('Производная $f\'(x)=6x+2$')
-plt.xlabel('x')
-plt.ylabel('f\'(x)')
-plt.grid(True)
+# plt.subplot(1,2,2)
+# plt.plot(x_values, y_values_diff, 'r')
+# plt.title('Производная $f\'(x)=6x+2$')
+# plt.xlabel('x')
+# plt.ylabel('f\'(x)')
+# plt.grid(True)
 
 
-plt.tight_layout()
-plt.show()
+# plt.tight_layout()
+# plt.show()
 
+# import pandas as pd
+
+# data = {'Имя': ['Аня', 'Борис', 'Вика', 'Гриша', 'Даша'],
+#         'Возраст': [25, 32, 28, 45, 22],
+#         'Город': ['Москва', 'Санкт-Петербург', 'Москва', 'Казань', 'Москва'],
+#         'Зарплата': [70000, 95000, 80000, 120000, 65000]}
+
+# df = pd.DataFrame(data)
+# print(df)
+# Vika = df[(df['Зарплата'] > 75_000) & (df['Город'] == 'Москва')]
+# avg_cash = df.groupby('Город')['Зарплата'].mean()
+# avg_age = df.groupby(['Город', 'Возраст'])['Возраст'].mean()
+
+
+
+
+#      Имя  Возраст            Город  Зарплата
+# 0    Аня       25           Москва     70000
+# 1  Борис       32  Санкт-Петербург     95000
+# 2   Вика       28           Москва     80000
+# 3  Гриша       45           Казань    120000
+# 4   Даша       22           Москва     65000
+
+# quest_1_1 = df[(df['Зарплата'] > 80_000) | (df['Возраст'] < 25)]
+# quest_1_2 = df[(df['Город'] != 'Москва')]
+
+# quest_2_1 = df.groupby('Город')['Имя'].count()
+# quest_2_2 = df.groupby('Город')['Зарплата'].agg(['min', 'max'])
+
+
+# print(quest_2_2)
+
+
+# users_df = pd.DataFrame({
+#     'User_id': [1, 2, 3, 4],
+#     'Имя': ['Аня', 'Борис', 'Вика', 'Гриша']
+# })
+
+# orders_df = pd.DataFrame({
+#     'Order_id': [101, 102, 103, 104],
+#     'User_id': [1, 3, 2, 5],
+#     'Товар': ['Ноутбук', 'Телефон', 'Клавиатура', 'Мышь']
+# })
+
+# print("DataFrame с пользователями:")
+# print(users_df)
+# print("\nDataFrame с заказами:")
+# print(orders_df)
+
+# merged_df = pd.merge(users_df, orders_df, on='User_id')
+# print("\nОбъединенный DataFrame:")
+# print(merged_df)
+
+
+# Создаем DataFrame с пропусками
+# data = {'A': [1, 2, None, 4], 'B': [5, None, 7, 8]}
+# df_nan = pd.DataFrame(data)
+
+# print("DataFrame с пропусками:")
+# print(df_nan)
+# print("\nКоличество пропусков в каждом столбце:")
+# print(df_nan.isnull().sum())
+
+# import pandas as pd
+
+# # DataFrame с данными о городах
+# cities_df = pd.DataFrame({
+#     'city_id': [1, 2, 3, 4, 5],
+#     'название_города': ['Москва', 'Санкт-Петербург', 'Казань', 'Новосибирск', 'Екатеринбург']
+# })
+
+# # DataFrame с данными о населении (с пропуском для Новосибирска)
+# population_df = pd.DataFrame({
+#     'city_id': [1, 2, 3, 5],
+#     'население': [13_010_000, 5_600_000, 1_300_000, 1_500_000]
+# })
+
+# print("DataFrame с городами:")
+# print(cities_df)
+# print("\nDataFrame с населением:")
+# print(population_df)
+# print()
+
+# merged_df = pd.merge(cities_df, population_df, on='city_id', how = 'outer')
+# print(merged_df)
+
+
+
+# import pandas as pd
+# import numpy as np
+
+# # DataFrame с пропусками
+# data_with_nan = pd.DataFrame({
+#     'столбец_A': [10, 20, np.nan, 40, 50],
+#     'столбец_B': [100, np.nan, 300, 400, 500],
+#     'столбец_C': [1, 2, 3, 4, np.nan]
+# })
+
+# print("DataFrame с пропусками:")
+# print(data_with_nan)
+# print("\nКоличество пропусков в каждом столбце:")
+# print(data_with_nan.isnull().sum())
+
+# data_with_nan['столбец_A'] = data_with_nan['столбец_A'].fillna(data_with_nan['столбец_A'].mean())
+
+# print(data_with_nan)
+
+# data_with_nan = data_with_nan.dropna()
+
+# print()
+# print(data_with_nan)
+
+# import pandas as pd
+
+
+# # Создаём DataFrame
+# data = {
+#     'title': ['The Shawshank Redemption', 'The Godfather', 'The Dark Knight', 'Pulp Fiction', 
+#               'Forrest Gump', 'Inception', 'The Matrix', 'Fight Club', 'Goodfellas', 'The Lord of the Rings'],
+#     'genre': ['Drama', 'Crime', 'Action', 'Crime', 'Drama', 
+#               'Sci-Fi', 'Sci-Fi', 'Drama', 'Crime', 'Fantasy'],
+#     'rating': [9.3, 9.2, 9.0, 8.9, 8.8, 8.8, 8.7, 8.8, 8.7, 8.9]
+# }
+
+# movies_df = pd.DataFrame(data)
+
+# print("Созданный DataFrame:")
+# print(movies_df)
+
+
+# avg_of_genre = movies_df.groupby('genre')['rating'].mean()
+# print()
+# print(avg_of_genre)
+
+
+# import pandas as pd
+
+# movies_df = pd.DataFrame({
+#     'movie_id': [1, 2, 3, 4, 5],
+#     'title': ['Inception', 'The Matrix', 'The Dark Knight', 'Pulp Fiction', 'Forrest Gump']
+# })
+
+# print("Датафрейм 'movies_df':")
+# print(movies_df)
+
+
+
+# genres_df = pd.DataFrame({
+#     'movie_id': [1, 2, 3, 4, 5],
+#     'genre': ['Sci-Fi', 'Sci-Fi', 'Action', 'Crime', 'Drama']
+# })
+
+# print("\nДатафрейм 'genres_df':")
+# print(genres_df)
+
+# merged_movies_df = pd.merge(movies_df, genres_df, on='movie_id', how='left')
+# print()
+# print(merged_movies_df)
+
+# import pandas as pd
+
+# df = pd.DataFrame({'дата': pd.to_datetime(['2024-01-15', '2024-02-20'])})
+
+
+# df['год'] = df['дата'].dt.year
+# df['месяц'] = df['дата'].dt.month_name()
+# df['день'] = df['дата'].dt.day
+# df['день_недели'] = df['дата'].dt.day_name()
+
+import pandas as pd
+
+# Создаём DataFrame
+data = {
+    'дата': ['10-01-2023', '15-01-2023', '20-02-2023', '25-02-2023',
+             '01-03-2024', '05-03-2024', '10-04-2024', '15-04-2024'],
+    'температура': [12, 14, 16, 17, 15, 18, 20, 19]
+}
+
+df_temp = pd.DataFrame(data)
+
+print("Созданный DataFrame:")
+print(df_temp)
+print("\nИнформация о DataFrame до преобразования:")
+print(df_temp.info())
+
+df_temp['дата'] = pd.to_datetime(df_temp['дата'], format='%d-%m-%Y')
+
+
+df_temp['год'] = df_temp['дата'].dt.year
+df_temp['месяц'] = df_temp['дата'].dt.month
+df_temp['день'] = df_temp['дата'].dt.day
+
+quest_1 = df_temp[df_temp['температура'] > 15]
+print(quest_1)
+
+quest_2 = df_temp[df_temp['год'] == 2023]
+
+print(quest_2)
