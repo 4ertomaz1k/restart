@@ -794,10 +794,11 @@ print("Датасет успешно создан. Ниже представле
 print(df.to_string())
 
 
-print(f'Русский: {np.percentile(df['Р'], 50)} ')
-print(f'Математика: {np.percentile(df['М'], 50)} ')
-print(f'Физика: {np.percentile(df['Ф'], 50)} ')
-print(f'Информатика: {np.percentile(df['И'], 50)} ')
+
+print(f'Русский: {df['Р'].quantile(0.75)} ')
+print(f'Математика: {df['М'].quantile(0.75)} ')
+print(f'Физика: {df['Ф'].quantile(0.75)} ')
+print(f'Информатика: {df['И'].quantile(0.75)} ')
 
 
 plt.figure(figsize=(20,10))
