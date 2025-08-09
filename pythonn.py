@@ -737,10 +737,78 @@
 # plt.title('Сравнение значений по категориям')
 # plt.show()
 
-from matplotlib import pyplot as plt
-import seaborn as sns
-import pandas as pd
-import numpy as np
+
+
+
+
+
+
+
+# Данные из таблицы
+# data = {
+#     '№': range(1, 21),
+#     'id': [
+#         4032772, 4527913, 4403127, 4223573, 3947019, 4608508, 4242850,
+#         4395206, 4338865, 3873844, 3952704, 3784978, 4604163, 4449304,
+#         3943602, 4469305, 4334991, 3820487, 4013792, 4392377
+#     ],
+#     'Р': [94, 81, 89, 91, 86, 86, 89, 89, 86, 86, 75, 67, 73, 89, 86, 86, 86, 66, 81, 70],
+#     'М': [97, 88, 78, 76, 78, 72, 78, 76, 78, 76, 78, 84, 82, 74, 70, 80, 80, 82, 78, 80],
+#     'Ф': [82, np.nan, np.nan, np.nan, 94, 67, np.nan, 51, np.nan, np.nan, 64, 79, np.nan, np.nan, np.nan, np.nan, 74, np.nan, np.nan, np.nan],
+#     'И': [np.nan, 95, 83, 88, np.nan, 88, 85, 85, 78, 85, 83, 90, 88, 70, 80, 75, np.nan, 85, 75, 80],
+#     'О': [np.nan] * 20,
+#     'ИЯ': [np.nan] * 20,
+#     'Х': [np.nan] * 20,
+#     'ПМ': [np.nan] * 20,
+#     'ПИ': [np.nan] * 20,
+#     'Мех': [np.nan] * 20,
+#     'ОЭиЭ': [np.nan] * 20,
+#     'ОЭ': [np.nan] * 20,
+#     'ИД': [5, 5, 10, 5, np.nan, 7, np.nan, np.nan, 5, np.nan, 8, 2, np.nan, 10, 7, np.nan, np.nan, 5, 2, 5],
+#     'Σ': [278, 269, 260, 260, 258, 253, 252, 250, 247, 247, 244, 243, 243, 243, 243, 241, 240, 238, 236, 235]
+# }
+
+# # Создание DataFrame
+# df = pd.DataFrame(data)
+
+# # Установка '№ п/п' в качестве индекса (по желанию, для соответствия с таблицей)
+# df.set_index('№', inplace=True)
+
+# # Проверка и вывод результата
+# print("Датасет успешно создан. Ниже представлена таблица для проверки:")
+# print(df.to_string())
+
+
+
+# print(f'Русский: {df['Р'].quantile(0.75)} ')
+# print(f'Математика: {df['М'].quantile(0.75)} ')
+# print(f'Физика: {df['Ф'].quantile(0.75)} ')
+# print(f'Информатика: {df['И'].quantile(0.75)} ')
+
+
+# plt.figure(figsize=(20,10))
+
+# plt.subplot(1,4,1)
+# sns.boxplot(y=df['Р'])
+# plt.title('Русский')
+
+# plt.subplot(1,4,2)
+# sns.boxplot(y=df['М'])
+# plt.title('Математика')
+
+# plt.subplot(1,4,3)
+# sns.boxplot(y=df['Ф'])
+# plt.title('Физика')
+
+# plt.subplot(1,4,4)
+# sns.boxplot(y=df['И'])
+# plt.title('Информатика')
+
+# plt.show()
+
+
+
+
 
 # movies_df = pd.DataFrame({
 #     'title': ['Inception', 'The Matrix', 'The Dark Knight', 'Pulp Fiction', 'Forrest Gump'],
@@ -749,77 +817,29 @@ import numpy as np
 # })
 
 
-# sns.barplot(x='genre', y='rating', data=movies_df)
+# # sns.barplot(x='genre', y='rating', data=movies_df)
+# plt.bar(movies_df['genre'], movies_df['rating'])
+
+
 # plt.title('avg rating by genre')
 # plt.show()
 
 # print(movies_df['rating'])
 # print(np.percentile(movies_df['rating'], 25))
 
+from matplotlib import pyplot as plt
+import seaborn as sns
+import pandas as pd
+import numpy as np
 
-
-
-# Данные из таблицы
 data = {
-    '№': range(1, 21),
-    'id': [
-        4032772, 4527913, 4403127, 4223573, 3947019, 4608508, 4242850,
-        4395206, 4338865, 3873844, 3952704, 3784978, 4604163, 4449304,
-        3943602, 4469305, 4334991, 3820487, 4013792, 4392377
-    ],
-    'Р': [94, 81, 89, 91, 86, 86, 89, 89, 86, 86, 75, 67, 73, 89, 86, 86, 86, 66, 81, 70],
-    'М': [97, 88, 78, 76, 78, 72, 78, 76, 78, 76, 78, 84, 82, 74, 70, 80, 80, 82, 78, 80],
-    'Ф': [82, np.nan, np.nan, np.nan, 94, 67, np.nan, 51, np.nan, np.nan, 64, 79, np.nan, np.nan, np.nan, np.nan, 74, np.nan, np.nan, np.nan],
-    'И': [np.nan, 95, 83, 88, np.nan, 88, 85, 85, 78, 85, 83, 90, 88, 70, 80, 75, np.nan, 85, 75, 80],
-    'О': [np.nan] * 20,
-    'ИЯ': [np.nan] * 20,
-    'Х': [np.nan] * 20,
-    'ПМ': [np.nan] * 20,
-    'ПИ': [np.nan] * 20,
-    'Мех': [np.nan] * 20,
-    'ОЭиЭ': [np.nan] * 20,
-    'ОЭ': [np.nan] * 20,
-    'ИД': [5, 5, 10, 5, np.nan, 7, np.nan, np.nan, 5, np.nan, 8, 2, np.nan, 10, 7, np.nan, np.nan, 5, 2, 5],
-    'Σ': [278, 269, 260, 260, 258, 253, 252, 250, 247, 247, 244, 243, 243, 243, 243, 241, 240, 238, 236, 235]
+    'температура': [25, 28, 30, 22, 26, 29],
+    'влажность': [60, 55, 50, 70, 65, 58],
+    'продажи_мороженого': [100, 150, 200, 70, 120, 180]
 }
-
-# Создание DataFrame
 df = pd.DataFrame(data)
 
-# Установка '№ п/п' в качестве индекса (по желанию, для соответствия с таблицей)
-df.set_index('№', inplace=True)
-
-# Проверка и вывод результата
-print("Датасет успешно создан. Ниже представлена таблица для проверки:")
-print(df.to_string())
-
-
-
-print(f'Русский: {df['Р'].quantile(0.75)} ')
-print(f'Математика: {df['М'].quantile(0.75)} ')
-print(f'Физика: {df['Ф'].quantile(0.75)} ')
-print(f'Информатика: {df['И'].quantile(0.75)} ')
-
-
-plt.figure(figsize=(20,10))
-
-plt.subplot(1,4,1)
-sns.boxplot(y=df['Р'])
-plt.title('Русский')
-
-plt.subplot(1,4,2)
-sns.boxplot(y=df['М'])
-plt.title('Математика')
-
-plt.subplot(1,4,3)
-sns.boxplot(y=df['Ф'])
-plt.title('Физика')
-
-plt.subplot(1,4,4)
-sns.boxplot(y=df['И'])
-plt.title('Информатика')
+correlation_matrix = df.corr()
+sns.heatmap(correlation_matrix, cmap='coolwarm')
 
 plt.show()
-
-
-
