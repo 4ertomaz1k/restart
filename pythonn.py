@@ -660,32 +660,165 @@
 # df['день'] = df['дата'].dt.day
 # df['день_недели'] = df['дата'].dt.day_name()
 
-import pandas as pd
+# import pandas as pd
 
-# Создаём DataFrame
+# # Создаём DataFrame
+# data = {
+#     'дата': ['10-01-2023', '15-01-2023', '20-02-2023', '25-02-2023',
+#              '01-03-2024', '05-03-2024', '10-04-2024', '15-04-2024'],
+#     'температура': [12, 14, 16, 17, 15, 18, 20, 19]
+# }
+
+# df_temp = pd.DataFrame(data)
+
+# print("Созданный DataFrame:")
+# print(df_temp)
+# print("\nИнформация о DataFrame до преобразования:")
+# print(df_temp.info())
+
+# df_temp['дата'] = pd.to_datetime(df_temp['дата'], format='%d-%m-%Y')
+
+
+# df_temp['год'] = df_temp['дата'].dt.year
+# df_temp['месяц'] = df_temp['дата'].dt.month
+# df_temp['день'] = df_temp['дата'].dt.day
+
+# quest_1 = df_temp[df_temp['температура'] > 15]
+# print(quest_1)
+
+# quest_2 = df_temp[df_temp['год'] == 2023]
+
+# print(quest_2)
+
+
+
+# import pandas as pd
+# import matplotlib.pyplot as plt
+
+# data = {
+#     'Месяц': ['Янв', 'Фев', 'Мар', 'Апр', 'Май'],
+#     'Продажи': [100, 150, 120, 180, 200]
+# }
+# df = pd.DataFrame(data)
+# plt.plot(df['Месяц'], df['Продажи'])
+# plt.title('Динамика продаж')
+# plt.xlabel('Месяц')
+# plt.ylabel('Продажи')
+# plt.show()
+
+# import pandas as pd
+# from matplotlib import pyplot as plt
+
+# data = {
+#     'дата' : ['01-01-2024', '02-01-2024', '03-01-2024'],
+#     'температура' : [0, -2, 5]
+# }
+
+# df = pd.DataFrame(data)
+
+# plt.plot(df['дата'], df['температура'])
+# plt.xlabel('Дата')
+# plt.ylabel('Температура')
+# plt.title('Динамика температур')
+# plt.show()
+
+# import seaborn as sns
+# import pandas as pd
+# import matplotlib.pyplot as plt
+
+# data = {
+#     'Категория': ['A', 'B', 'A', 'B', 'A'],
+#     'Значение': [10, 20, 15, 25, 12]
+# }
+# df = pd.DataFrame(data)
+
+
+# sns.boxplot(x='Категория', y='Значение', data=df)
+# plt.title('Сравнение значений по категориям')
+# plt.show()
+
+from matplotlib import pyplot as plt
+import seaborn as sns
+import pandas as pd
+import numpy as np
+
+# movies_df = pd.DataFrame({
+#     'title': ['Inception', 'The Matrix', 'The Dark Knight', 'Pulp Fiction', 'Forrest Gump'],
+#     'genre': ['Sci-Fi', 'Sci-Fi', 'Action', 'Crime', 'Drama'],
+#     'rating': [8.8, 8.7, 9.0, 8.9, 8.8]
+# })
+
+
+# sns.barplot(x='genre', y='rating', data=movies_df)
+# plt.title('avg rating by genre')
+# plt.show()
+
+# print(movies_df['rating'])
+# print(np.percentile(movies_df['rating'], 25))
+
+
+
+
+# Данные из таблицы
 data = {
-    'дата': ['10-01-2023', '15-01-2023', '20-02-2023', '25-02-2023',
-             '01-03-2024', '05-03-2024', '10-04-2024', '15-04-2024'],
-    'температура': [12, 14, 16, 17, 15, 18, 20, 19]
+    '№': range(1, 21),
+    'id': [
+        4032772, 4527913, 4403127, 4223573, 3947019, 4608508, 4242850,
+        4395206, 4338865, 3873844, 3952704, 3784978, 4604163, 4449304,
+        3943602, 4469305, 4334991, 3820487, 4013792, 4392377
+    ],
+    'Р': [94, 81, 89, 91, 86, 86, 89, 89, 86, 86, 75, 67, 73, 89, 86, 86, 86, 66, 81, 70],
+    'М': [97, 88, 78, 76, 78, 72, 78, 76, 78, 76, 78, 84, 82, 74, 70, 80, 80, 82, 78, 80],
+    'Ф': [82, np.nan, np.nan, np.nan, 94, 67, np.nan, 51, np.nan, np.nan, 64, 79, np.nan, np.nan, np.nan, np.nan, 74, np.nan, np.nan, np.nan],
+    'И': [np.nan, 95, 83, 88, np.nan, 88, 85, 85, 78, 85, 83, 90, 88, 70, 80, 75, np.nan, 85, 75, 80],
+    'О': [np.nan] * 20,
+    'ИЯ': [np.nan] * 20,
+    'Х': [np.nan] * 20,
+    'ПМ': [np.nan] * 20,
+    'ПИ': [np.nan] * 20,
+    'Мех': [np.nan] * 20,
+    'ОЭиЭ': [np.nan] * 20,
+    'ОЭ': [np.nan] * 20,
+    'ИД': [5, 5, 10, 5, np.nan, 7, np.nan, np.nan, 5, np.nan, 8, 2, np.nan, 10, 7, np.nan, np.nan, 5, 2, 5],
+    'Σ': [278, 269, 260, 260, 258, 253, 252, 250, 247, 247, 244, 243, 243, 243, 243, 241, 240, 238, 236, 235]
 }
 
-df_temp = pd.DataFrame(data)
+# Создание DataFrame
+df = pd.DataFrame(data)
 
-print("Созданный DataFrame:")
-print(df_temp)
-print("\nИнформация о DataFrame до преобразования:")
-print(df_temp.info())
+# Установка '№ п/п' в качестве индекса (по желанию, для соответствия с таблицей)
+df.set_index('№', inplace=True)
 
-df_temp['дата'] = pd.to_datetime(df_temp['дата'], format='%d-%m-%Y')
+# Проверка и вывод результата
+print("Датасет успешно создан. Ниже представлена таблица для проверки:")
+print(df.to_string())
 
 
-df_temp['год'] = df_temp['дата'].dt.year
-df_temp['месяц'] = df_temp['дата'].dt.month
-df_temp['день'] = df_temp['дата'].dt.day
+print(f'Русский: {np.percentile(df['Р'], 50)} ')
+print(f'Математика: {np.percentile(df['М'], 50)} ')
+print(f'Физика: {np.percentile(df['Ф'], 50)} ')
+print(f'Информатика: {np.percentile(df['И'], 50)} ')
 
-quest_1 = df_temp[df_temp['температура'] > 15]
-print(quest_1)
 
-quest_2 = df_temp[df_temp['год'] == 2023]
+plt.figure(figsize=(20,10))
 
-print(quest_2)
+plt.subplot(1,4,1)
+sns.boxplot(y=df['Р'])
+plt.title('Русский')
+
+plt.subplot(1,4,2)
+sns.boxplot(y=df['М'])
+plt.title('Математика')
+
+plt.subplot(1,4,3)
+sns.boxplot(y=df['Ф'])
+plt.title('Физика')
+
+plt.subplot(1,4,4)
+sns.boxplot(y=df['И'])
+plt.title('Информатика')
+
+plt.show()
+
+
+
